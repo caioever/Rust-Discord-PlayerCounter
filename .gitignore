@@ -1,0 +1,3 @@
+#ignora pastas e dependencias
+node_modules/
+package-lock.*

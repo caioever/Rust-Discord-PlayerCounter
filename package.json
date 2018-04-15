@@ -1,0 +1,17 @@
+{
+  "name": "player-counter",
+  "version": "1.0.0",
+  "description": "Contador de Players para um bot",
+  "main": "playerCounterBot.js",
+  "keywords": [
+    "rust",
+    "discord"
+  ],
+  "author": "caio.barcelos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "discord.js": "^11.3.2",
+    "express": "^4.16.3"
+  }
+}
