@@ -26,6 +26,6 @@ client.on("ready", () => {
     client.user.setActivity('Esperando...');
 });
 
-app.listen(config.porta, function () {
-    console.log(`O bot está escutando a porta:${config.porta}`);
+app.listen(process.env.PORT || config.porta, function () {
+  console.log(`O bot está escutando a porta:${config.porta}`);
 });
