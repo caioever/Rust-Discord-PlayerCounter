@@ -13,6 +13,9 @@ namespace Oxide.Plugins
 
   class PlayerCounterPlugin : CovalencePlugin
   {
+    string enderecoServidor = "localhost";
+    string porta = "3000";
+
     void OnPlayerConnected(Network.Message packet)
     {
       //int agora = global.BasePlayer.activePlayerList.Count;
@@ -36,7 +39,7 @@ namespace Oxide.Plugins
 
     void NotificarBot(BotPayload payload)
     {
-      string webhook = "ENDERECO DO BOT";
+      string webhook = $"http://{enderecoServidor}:{porta}/atualizarContador";
       if (payload == null || string.IsNullOrEmpty(webhook)) return;
       webrequest.Enqueue(webhook, JsonConvert.SerializeObject(payload), (code, response) => ServerDetailsCallback(code, response), this, RequestMethod.POST);
     }
