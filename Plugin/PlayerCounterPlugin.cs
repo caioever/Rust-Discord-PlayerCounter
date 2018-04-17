@@ -22,8 +22,9 @@ namespace Oxide.Plugins
       var payload = new BotPayload
       {
         numeroDePLayersAgora = $"{BasePlayer.activePlayerList.Count}",
-        numeroDePlayersTotal = "200"
+        numeroDePlayersTotal = $"{200}"
       };
+
       NotificarBot(payload);
     }
 
@@ -32,21 +33,25 @@ namespace Oxide.Plugins
       var payload = new BotPayload
       {
         numeroDePLayersAgora = $"{BasePlayer.activePlayerList.Count}",
-        numeroDePlayersTotal = "200"
+        numeroDePlayersTotal = $"{200}"
       };
+
       NotificarBot(payload);
     }
 
     void NotificarBot(BotPayload payload)
     {
       string webhook = $"http://{enderecoServidor}:{porta}/atualizarContador";
+      Dictionary<string, string> header = new Dictionary<string, string>();
+      header.add("Content-Type", "application/json")
+      Puts(JsonConvert.SerializeObject(payload));
       if (payload == null || string.IsNullOrEmpty(webhook)) return;
-      webrequest.Enqueue(webhook, JsonConvert.SerializeObject(payload), (code, response) => ServerDetailsCallback(code, response), this, RequestMethod.POST);
+      webrequest.Enqueue(webhook, JsonConvert.SerializeObject(payload), (code, response) => ServerDetailsCallback(code, response), this, RequestMethod.POST, header);
     }
 
     void ServerDetailsCallback(int codigo, string callback)
     {
-      if (callback == null || codigo != 200 || codigo != 201 || codigo != 202 || codigo != 203 || codigo != 204)
+      if (callback == null && codigo != 200 || codigo != 201 || codigo != 202 || codigo != 203 || codigo != 204)
       {
         Puts($"ERRO: {codigo} - NAO FOI POSSIVEL CONECTAR COM O BOT | callback: {callback}");
         return;
