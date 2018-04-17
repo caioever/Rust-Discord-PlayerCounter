@@ -35,7 +35,7 @@ Dentro do arquivo de configuraçao `config.json` você verá a seguinte estrutur
 }
 ```
 
-Como pode ver é bem intuitivo, você define o token do seu bot registrado e a porta que deseja que o bot fique ouvindo.
+É bem intuitivo! :) Você define o token do seu bot registrado e a porta que deseja que o bot fique ouvindo.
 
 No plugin você verá bem no inicio a seguinte linha:
 ```cs
@@ -43,6 +43,9 @@ No plugin você verá bem no inicio a seguinte linha:
   string porta = "3000";
 ```
 Para configurar você só precisa definir o endereço e a porta do host do bot.
+
+- Caso esteja usando um serviço servless como heroku ou GCP vale a leitura abaixo para configurar usando as variaveis de ambiente:
+https://devcenter.heroku.com/articles/config-vars
 
 ## Teste
 Após devidamente configurado e instalado você pode testar via curl conforme o exemplo abaixo:
