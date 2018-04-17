@@ -4,7 +4,7 @@
   "description": "Contador de Players para um bot",
   "main": "playerCounterBot.js",
   "scripts": {
-    "start": "node playerCounterBot.js",
+    "start": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
