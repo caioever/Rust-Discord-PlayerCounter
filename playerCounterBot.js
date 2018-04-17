@@ -19,7 +19,7 @@ app.post('/atualizarContador', function (req, res) {
 });
 
 const client = new Discord.Client();
-client.login(config.token);
+client.login(process.env.TOKEN || config.token);
 
 client.on("ready", () => {
     console.log("Bot Iniciado");
