@@ -23,7 +23,7 @@ client.login(process.env.TOKEN || config.token);
 
 client.on("ready", () => {
     console.log("Bot Iniciado");
-    client.user.setActivity('Esperando...');
+    client.user.setActivity('Waiting...');
 });
 
 app.listen(process.env.PORT || config.porta, function () {

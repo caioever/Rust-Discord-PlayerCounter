@@ -15,6 +15,7 @@ namespace Oxide.Plugins
   {
     string enderecoServidor = "localhost";
     string porta = "3000";
+    int maximoDePlayers = 10;
 
     void OnPlayerConnected(Network.Message packet)
     {
@@ -22,7 +23,7 @@ namespace Oxide.Plugins
       var payload = new BotPayload
       {
         numeroDePLayersAgora = $"{BasePlayer.activePlayerList.Count}",
-        numeroDePlayersTotal = $"{200}"
+        numeroDePlayersTotal = $"{maximoDePlayers}"
       };
 
       NotificarBot(payload);
@@ -33,7 +34,7 @@ namespace Oxide.Plugins
       var payload = new BotPayload
       {
         numeroDePLayersAgora = $"{BasePlayer.activePlayerList.Count}",
-        numeroDePlayersTotal = $"{200}"
+        numeroDePlayersTotal = $"{maximoDePlayers}"
       };
 
       NotificarBot(payload);
@@ -51,13 +52,9 @@ namespace Oxide.Plugins
 
     void ServerDetailsCallback(int codigo, string callback)
     {
-<<<<<<< Updated upstream
-      if (callback == null && codigo != 200 || codigo != 201 || codigo != 202 || codigo != 203 || codigo != 204)
-=======
       int[] codigosDeErro = {200, 201, 202, 203, 204};
       int contains = Array.IndexOf(codigosDeErro, codigo);
       if (callback == null || contains > 0)
->>>>>>> Stashed changes
       {
         Puts($"ERRO: {codigo} - NAO FOI POSSIVEL CONECTAR COM O BOT | callback: {callback}");
         return;
