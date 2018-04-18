@@ -44,7 +44,7 @@ namespace Oxide.Plugins
     {
       string webhook = $"http://{enderecoServidor}:{porta}/atualizarContador";
       Dictionary<string, string> header = new Dictionary<string, string>();
-      header.add("Content-Type", "application/json")
+      header.Add("Content-Type", "application/json");
       Puts(JsonConvert.SerializeObject(payload));
       if (payload == null || string.IsNullOrEmpty(webhook)) return;
       webrequest.Enqueue(webhook, JsonConvert.SerializeObject(payload), (code, response) => ServerDetailsCallback(code, response), this, RequestMethod.POST, header);
